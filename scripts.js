@@ -1,15 +1,16 @@
 function toggleImage(element) {
     const img = element.querySelector('img');
     const fullSrc = img.getAttribute('data-full');
-    const thumbSrc = img.getAttribute('src');
+    const overlay = document.getElementById('overlay');
 
-    if (img.classList.contains('full')) {
-        img.classList.remove('full');
-        img.setAttribute('src', thumbSrc);
-    } else {
-        img.classList.add('full');
-        img.setAttribute('src', fullSrc);
-    }
+    overlay.innerHTML = `<img src="${fullSrc}" alt="Full Image">`;
+    overlay.style.display = 'flex';
+}
+
+function closeImage() {
+    const overlay = document.getElementById('overlay');
+    overlay.style.display = 'none';
+    overlay.innerHTML = '';
 }
 
 document.getElementById('contact-form').addEventListener('submit', function(event) {
