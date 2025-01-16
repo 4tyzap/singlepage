@@ -154,7 +154,7 @@ main {
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: 1001; /* Выше, чем хэдер и футер */
 }
 
 .overlay img {
