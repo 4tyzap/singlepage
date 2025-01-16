@@ -31,22 +31,48 @@ header {
     max-height: 15vh; /* Максимальная высота 15% от высоты окна */
 }
 
+.header-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.header-table td {
+    padding: 0;
+    border: none;
+}
+
+.header-table h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
 nav ul {
     list-style-type: none;
     padding: 0;
     display: flex;
     justify-content: center;
-    margin-top: 1em;
+    margin: 0;
 }
 
 nav ul li {
     margin: 0 1em;
 }
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
+nav ul li button {
+    background-color: #fff;
+    color: #ff6600; /* Оранжевый */
+    border: 2px solid #ff6600; /* Оранжевый */
+    border-radius: 4px;
+    padding: 0.5em 1em;
     font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    max-height: calc(15vh / 3); /* Максимальная высота кнопок 1/3 высоты хэдера */
+}
+
+nav ul li button:hover {
+    background-color: #ff6600; /* Оранжевый */
+    color: #fff;
 }
 
 .section {
@@ -171,24 +197,4 @@ main {
     width: 0;
     height: 0;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: width 0.5s ease, height 0.5s ease;
-    z-index: 1002;
-}
-
-.product-full.active {
-    width: 1000px;
-    height: 1000px;
-}
-
-.product-full img {
-    max-width: 100%;
-    max-height: 100%;
-    display: none;
-}
-
-.product-full.active img {
-    display: block;
-}
+    border-radius: 8
