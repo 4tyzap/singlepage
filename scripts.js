@@ -31,14 +31,21 @@ function toggleImage(element) {
 
     const fullImg = productFull.querySelector('img');
     fullImg.onload = () => {
-        productFull.classList.add('active');
-        scaleImage(productFull, fullImg);
-    };
+        const minDimension = Math.min(window.innerWidth, window.innerHeight) - 20; // Учитываем поля
+        const imgWidth = fullImg.naturalWidth;
+        const imgHeight = fullImg.naturalHeight;
 
-    // Если изображение уже загружено, вызываем scaleImage сразу
-    if (fullImg.complete) {
-        scaleImage(productFull, fullImg);
-    }
+        let scale = 1;
+        if (imgWidth > minDimension || imgHeight > minDimension) {
+            scale = Math.min(minDimension / imgWidth, minDimension / imgHeight);
+        }
+
+        productFull.style.width = `${imgWidth * scale}px`;
+        productFull.style.height = `${imgHeight * scale}px`;
+        fullImg.style.transform = `scale(${scale})`;
+
+        productFull.classList.add('active');
+    };
 }
 
 function closeImage() {
@@ -51,22 +58,6 @@ function closeImage() {
         overlay.classList.remove('active');
         overlay.innerHTML = '';
     }, 500); // Время анимации
-}
-
-function scaleImage(container, img) {
-    const minDimension = Math.min(window.innerWidth, window.innerHeight) - 20; // Учитываем поля
-    const imgWidth = img.naturalWidth;
-    const imgHeight = img.naturalHeight;
-
-    if (imgWidth > minDimension || imgHeight > minDimension) {
-        const scale = Math.min(minDimension / imgWidth, minDimension / imgHeight);
-        container.style.width = `${imgWidth * scale}px`;
-        container.style.height = `${imgHeight * scale}px`;
-        img.style.transform = `scale(${scale})`;
-    } else {
-        container.style.width = `${imgWidth}px`;
-        container.style.height = `${imgHeight}px`;
-    }
 }
 
 document.getElementById('contact-form').addEventListener('submit', function(event) {
