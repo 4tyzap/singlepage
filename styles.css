@@ -18,8 +18,12 @@ body {
 header {
     background-color: #ff6600; /* Оранжевый */
     color: #fff;
-    padding: 2em 0;
+    padding: 1em 0;
     text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 nav ul {
@@ -43,6 +47,7 @@ nav ul li a {
 .section {
     padding: 4em 0;
     text-align: center;
+    margin-top: 6em; /* Добавлен отступ для компенсации фиксированного хэдера */
 }
 
 .section h2 {
@@ -66,6 +71,10 @@ nav ul li a {
     cursor: pointer;
     overflow: hidden;
     position: relative;
+}
+
+.product:hover {
+    cursor: zoom-in;
 }
 
 .product img {
@@ -119,11 +128,18 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1em 0;
-    margin-top: auto; /* Перемещает футер вниз */
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 1000;
 }
 
 footer .container {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+main {
+    margin-bottom: 6em; /* Добавлен отступ для компенсации фиксированного футера */
 }
