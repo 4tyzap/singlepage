@@ -29,10 +29,11 @@ function toggleImage(element) {
     overlay.appendChild(productFull);
     overlay.classList.add('active');
 
-    setTimeout(() => {
+    const fullImg = productFull.querySelector('img');
+    fullImg.onload = () => {
         productFull.classList.add('active');
-        scaleImage(productFull, productFull.querySelector('img'));
-    }, 0);
+        scaleImage(productFull, fullImg);
+    };
 }
 
 function closeImage() {
