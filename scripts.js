@@ -4,12 +4,12 @@ function toggleImage(element) {
     const overlay = document.getElementById('overlay');
 
     overlay.innerHTML = `<img src="${fullSrc}" alt="Full Image">`;
-    overlay.style.display = 'flex';
+    overlay.classList.add('active');
 }
 
 function closeImage() {
     const overlay = document.getElementById('overlay');
-    overlay.style.display = 'none';
+    overlay.classList.remove('active');
     overlay.innerHTML = '';
 }
 
