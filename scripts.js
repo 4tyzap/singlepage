@@ -31,7 +31,7 @@ function toggleImage(element) {
 
     setTimeout(() => {
         productFull.classList.add('active');
-        adjustImageSize(productFull);
+        scaleImage(productFull.querySelector('img'));
     }, 0);
 }
 
@@ -47,15 +47,13 @@ function closeImage() {
     }, 500); // Время анимации
 }
 
-function adjustImageSize(productFull) {
-    const img = productFull.querySelector('img');
-    const containerWidth = productFull.offsetWidth;
-    const containerHeight = productFull.offsetHeight;
+function scaleImage(img) {
+    const minDimension = Math.min(window.innerWidth, window.innerHeight) - 20; // Учитываем поля
     const imgWidth = img.naturalWidth;
     const imgHeight = img.naturalHeight;
 
-    if (imgWidth > containerWidth || imgHeight > containerHeight) {
-        const scale = Math.min(containerWidth / imgWidth, containerHeight / imgHeight);
+    if (imgWidth > minDimension || imgHeight > minDimension) {
+        const scale = Math.min(minDimension / imgWidth, minDimension / imgHeight);
         img.style.transform = `scale(${scale})`;
     }
 }
