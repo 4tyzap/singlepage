@@ -31,6 +31,7 @@ function toggleImage(element) {
 
     setTimeout(() => {
         productFull.classList.add('active');
+        adjustImageSize(productFull);
     }, 0);
 }
 
@@ -44,6 +45,19 @@ function closeImage() {
         overlay.classList.remove('active');
         overlay.innerHTML = '';
     }, 500); // Время анимации
+}
+
+function adjustImageSize(productFull) {
+    const img = productFull.querySelector('img');
+    const containerWidth = productFull.offsetWidth;
+    const containerHeight = productFull.offsetHeight;
+    const imgWidth = img.naturalWidth;
+    const imgHeight = img.naturalHeight;
+
+    if (imgWidth > containerWidth || imgHeight > containerHeight) {
+        const scale = Math.min(containerWidth / imgWidth, containerHeight / imgHeight);
+        img.style.transform = `scale(${scale})`;
+    }
 }
 
 document.getElementById('contact-form').addEventListener('submit', function(event) {
