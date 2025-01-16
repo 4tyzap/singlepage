@@ -34,6 +34,11 @@ function toggleImage(element) {
         productFull.classList.add('active');
         scaleImage(productFull, fullImg);
     };
+
+    // Если изображение уже загружено, вызываем scaleImage сразу
+    if (fullImg.complete) {
+        scaleImage(productFull, fullImg);
+    }
 }
 
 function closeImage() {
