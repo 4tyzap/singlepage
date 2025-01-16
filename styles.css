@@ -177,8 +177,10 @@ main {
 }
 
 .product-full.active {
-    width: 1000px;
-    height: 1000px;
+    width: 90%;
+    height: 90%;
+    max-width: 1000px;
+    max-height: 1000px;
 }
 
 .product-full img {
