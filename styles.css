@@ -157,13 +157,6 @@ main {
     display: flex;
 }
 
-.overlay img {
-    max-width: 80%;
-    max-height: 80%;
-    border-radius: 8px;
-    transition: transform 0.5s ease; /* Плавное увеличение */
-}
-
 .product-full {
     position: fixed;
     top: 50%;
@@ -180,8 +173,8 @@ main {
 }
 
 .product-full.active {
-    width: 80%;
-    height: 80%;
+    width: 1000px;
+    height: 1000px;
 }
 
 .product-full img {
