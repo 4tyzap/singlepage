@@ -1,1 +1,100 @@
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Крафтовая бумага для упаковки</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Крафтовая бумага для упаковки эксклюзивных подарков</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#products">Продукция</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="about" class="section">
+            <div class="container">
+                <h2>О нас</h2>
+                <p>Мы специализируемся на производстве высококачественной крафтовой бумаги для упаковки эксклюзивных подарков. Наши продукты идеально подходят для создания уникальных и стильных упаковок.</p>
+            </div>
+        </section>
+        <section id="products" class="section">
+            <div class="container">
+                <h2>Продукция</h2>
+                <div class="product-grid">
+                    <div class="product" onclick="toggleImage(this)">
+                        <img src="product1-thumb.jpg" alt="Крафтовая бумага" data-full="product1.jpg">
+                        <p>Крафтовая бумага с текстурой</p>
+                    </div>
+                    <div class="product" onclick="toggleImage(this)">
+                        <img src="product2-thumb.jpg" alt="Крафтовая бумага" data-full="product2.jpg">
+                        <p>Крафтовая бумага с принтом</p>
+                    </div>
+                    <div class="product" onclick="toggleImage(this)">
+                        <img src="product3-thumb.jpg" alt="Крафтовая бумага" data-full="product3.jpg">
+                        <p>Крафтовая бумага с узором</p>
+                    </div>
+                    <div class="product" onclick="toggleImage(this)">
+                        <img src="product4-thumb.jpg" alt="Крафтовая бумага" data-full="product4.jpg">
+                        <p>Крафтовая бумага с логотипом</p>
+                    </div>
+                    <div class="product" onclick="toggleImage(this)">
+                        <img src="product5-thumb.jpg" alt="Крафтовая бумага" data-full="product5.jpg">
+                        <p>Крафтовая бумага с рисунком</p>
+                    </div>
+                    <div class="product" onclick="toggleImage(this)">
+                        <img src="product6-thumb.jpg" alt="Крафтовая бумага" data-full="product6.jpg">
+                        <p>Крафтовая бумага с надписью</p>
+                    </div>
+                    <div class="product" onclick="toggleImage(this)">
+                        <img src="product7-thumb.jpg" alt="Крафтовая бумага" data-full="product7.jpg">
+                        <p>Крафтовая бумага с фоном</p>
+                    </div>
+                    <div class="product" onclick="toggleImage(this)">
+                        <img src="product8-thumb.jpg" alt="Крафтовая бумага" data-full="product8.jpg">
+                        <p>Крафтовая бумага с текстурой</p>
+                    </div>
+                    <div class="product" onclick="toggleImage(this)">
+                        <img src="product9-thumb.jpg" alt="Крафтовая бумага" data-full="product9.jpg">
+                        <p>Крафтовая бумага с принтом</p>
+                    </div>
+                    <div class="product" onclick="toggleImage(this)">
+                        <img src="product10-thumb.jpg" alt="Крафтовая бумага" data-full="product10.jpg">
+                        <p>Крафтовая бумага с узором</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Контакты</h2>
+                <form id="contact-form">
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Сообщение:</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <button type="submit">Отправить</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Крафтовая бумага для упаковки. Все права защищены.</p>
+        </div>
+    </footer>
+    <div id="overlay" class="overlay" onclick="closeImage()"></div>
+    <script src="scripts.js"></script>
+</body>
+</html>
