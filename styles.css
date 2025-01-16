@@ -28,6 +28,7 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
+    max-height: 15vh; /* Максимальная высота 15% от высоты окна */
 }
 
 nav ul {
@@ -51,7 +52,7 @@ nav ul li a {
 .section {
     padding: 4em 0;
     text-align: center;
-    margin-top: 6em; /* Добавлен отступ для компенсации фиксированного хэдера */
+    margin-top: 15vh; /* Добавлен отступ для компенсации фиксированного хэдера */
 }
 
 .section h2 {
@@ -131,6 +132,7 @@ footer {
     width: 100%;
     bottom: 0;
     z-index: 1000;
+    max-height: 10vh; /* Максимальная высота 10% от высоты окна */
 }
 
 footer .container {
@@ -140,7 +142,7 @@ footer .container {
 }
 
 main {
-    margin-bottom: 6em; /* Добавлен отступ для компенсации фиксированного футера */
+    margin-bottom: 10vh; /* Добавлен отступ для компенсации фиксированного футера */
 }
 
 .overlay {
