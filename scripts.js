@@ -46,19 +46,23 @@ function toggleImage(element) {
     overlay.appendChild(productFull);
     overlay.classList.add('active');
 
-    const fullImg = productFull.querySelector('img');
-    fullImg.onload = () => {
-        const minDimension = Math.min(window.innerWidth, window.innerHeight); // Учитываем поля
-        const imgWidth = fullImg.naturalWidth;
-        const imgHeight = fullImg.naturalHeight;
+const fullImg = productFull.querySelector('img');
+fullImg.onload = () => {
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+    const imgWidth = fullImg.naturalWidth;
+    const imgHeight = fullImg.naturalHeight;
 
-        let scaler = 1;
-        if (imgWidth > minDimension || imgHeight > minDimension) {
-            scaler = Math.min(minDimension / imgWidth, minDimension / imgHeight);
-        }
-        
-        productFull.style.width = `${imgWidth * scaler}px`;
-        productFull.style.height = `${imgHeight * scaler}px`;
+    // Вычисляем коэффициенты масштабирования по ширине и высоте
+    const scaleWidth = windowWidth / imgWidth;
+    const scaleHeight = windowHeight / imgHeight;
+
+    // Используем наименьший из коэффициентов
+    const scale = Math.min(scaleWidth, scaleHeight);
+
+    // Применяем масштабирование к контейнеру
+    productFull.style.width = `${imgWidth * scale}px`;
+    productFull.style.height = `${imgHeight * scale}px`;
 
         productFull.classList.add('active');
     };
