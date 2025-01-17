@@ -1,21 +1,45 @@
-document.querySelectorAll('nav ul li a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
+document.addEventListener('DOMContentLoaded', function() {
+    const productGrid = document.getElementById('product-grid');
 
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
+    // Функция для получения списка файлов в папке img
+    async function getProductFiles() {
+        const response = await fetch('img/');
+        const text = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'text/html');
+        const links = doc.querySelectorAll('a');
+        const files = [];
 
-        if (targetElement) {
-            const headerHeight = document.querySelector('header').offsetHeight;
-            const elementPosition = targetElement.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+        links.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href.endsWith('.png') || href.endsWith('.jpg')) {
+                files.push(href);
+            }
+        });
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
+        return files;
+    }
+
+    // Функция для создания продуктов
+    async function createProducts() {
+        const files = await getProductFiles();
+
+        files.forEach(file => {
+            const fileName = file.split('/').pop().replace(/\.[^/.]+$/, "");
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('product');
+            productDiv.setAttribute('onclick', 'toggleImage(this)');
+            productDiv.innerHTML = `
+                <img src="thumb/${fileName}-thumb.jpg" alt="${fileName}" data-full="img/${file}">
+                <div class="overlay">
+                    <p>${fileName}</p>
+                </div>
+            `;
+            productGrid.appendChild(productDiv);
+        });
+    }
+
+    createProducts();
 });
 
 function toggleImage(element) {
