@@ -52,9 +52,6 @@ function toggleImage(element) {
         const imgHeight = fullImg.naturalHeight;
 
         let scale = 1;
-        if (imgWidth > minDimension || imgHeight > minDimension) {
-            scale = Math.min(minDimension / imgWidth, minDimension / imgHeight);
-        }
 
         productFull.style.width = `${imgWidth * scale}px`;
         productFull.style.height = `${imgHeight * scale}px`;
