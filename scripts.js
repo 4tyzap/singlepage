@@ -1,30 +1,23 @@
 document.addEventListener('DOMContentLoaded', function() {
     const productGrid = document.getElementById('product-grid');
 
-    // Функция для получения списка файлов в папке img
-    async function getProductFiles() {
-        const response = await fetch('img/');
-        const text = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(text, 'text/html');
-        const links = doc.querySelectorAll('a');
-        const files = [];
-
-        links.forEach(link => {
-            const href = link.getAttribute('href');
-            if (href.endsWith('.png') || href.endsWith('.jpg')) {
-                files.push(href);
-            }
-        });
-
-        return files;
-    }
+    // Статический список файлов изображений
+    const productFiles = [
+        'product1.jpg',
+        'product2.jpg',
+        'product3.jpg',
+        'product4.jpg',
+        'product5.jpg',
+        'product6.jpg',
+        'product7.jpg',
+        'product8.jpg',
+        'product9.jpg',
+        'product10.jpg'
+    ];
 
     // Функция для создания продуктов
-    async function createProducts() {
-        const files = await getProductFiles();
-
-        files.forEach(file => {
+    function createProducts() {
+        productFiles.forEach(file => {
             const fileName = file.split('/').pop().replace(/\.[^/.]+$/, "");
             const productDiv = document.createElement('div');
             productDiv.classList.add('product');
