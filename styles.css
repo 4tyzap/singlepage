@@ -63,14 +63,14 @@ nav ul li a {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: 2em;
 }
 
 .product {
     background-color: #fff;
-    width: 100%;
-    padding-top: 100%; /* Квадратный контейнер */
+    width: 170px;
+    height: 170px;
     position: relative;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -84,25 +84,34 @@ nav ul li a {
 }
 
 .product img {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 8px;
 }
 
-.product p {
+.product .overlay {
     position: absolute;
-    bottom: -2em; /* Подпись за границами контейнера */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 0.5em;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    white-space: nowrap;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product:hover .overlay {
+    opacity: 1;
+}
+
+.product .overlay p {
+    color: #fff;
+    font-size: 1em;
+    margin: 0;
 }
 
 form {
