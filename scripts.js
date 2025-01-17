@@ -51,11 +51,13 @@ function toggleImage(element) {
         const imgWidth = fullImg.naturalWidth;
         const imgHeight = fullImg.naturalHeight;
 
-        let scale = 1;
-
-        productFull.style.width = `${imgWidth * scale}px`;
-        productFull.style.height = `${imgHeight * scale}px`;
-        fullImg.style.transform = `scale(${scale})`;
+        let scaler = 1;
+        if (imgWidth > minDimension || imgHeight > minDimension) {
+            scaler = Math.min(minDimension / imgWidth, minDimension / imgHeight);
+        }
+        
+        productFull.style.width = `${imgWidth * scaler}px`;
+        productFull.style.height = `${imgHeight * scaler}px`;
 
         productFull.classList.add('active');
     };
