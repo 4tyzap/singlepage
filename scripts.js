@@ -24,9 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
             productDiv.setAttribute('onclick', 'toggleImage(this)');
             productDiv.innerHTML = `
                 <img src="thumb/${fileName}-thumb.jpg" alt="${fileName}" data-full="img/${file}">
-                <div class="overlay">
+                // <div class="overlay">
                     <p>${fileName}</p>
-                </div>
+                // </div>
             `;
             productGrid.appendChild(productDiv);
         });
