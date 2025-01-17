@@ -58,11 +58,13 @@ fullImg.onload = () => {
     const scaleHeight = windowHeight / imgHeight;
 
     // Используем наименьший из коэффициентов
-    const scale = Math.min(scaleWidth, scaleHeight);
+    const scale = Math.min(scaleWidth, scaleHeight, 1); // Ограничиваем масштаб до 1
 
-    // Применяем масштабирование к контейнеру
+    // Применяем масштабирование к контейнеру и изображению
     productFull.style.width = `${imgWidth * scale}px`;
     productFull.style.height = `${imgHeight * scale}px`;
+    fullImg.style.width = `${imgWidth * scale}px`;
+    fullImg.style.height = `${imgHeight * scale}px`;
 
         productFull.classList.add('active');
     };
