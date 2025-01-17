@@ -92,20 +92,21 @@ nav ul li a {
 
 .product .overlay {
     position: absolute;
-    top: 0;
+    bottom: -20%; /* Начальная позиция за пределами контейнера */
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 20%;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, bottom 0.3s ease;
 }
 
 .product:hover .overlay {
     opacity: 1;
+    bottom: 0; /* Конечная позиция внутри контейнера */
 }
 
 .product .overlay p {
