@@ -80,7 +80,7 @@ nav ul li a {
 }
 
 .product:hover {
-    cursor: zoom-in;
+    cursor: pointer;
 }
 
 .product img {
@@ -100,14 +100,14 @@ nav ul li a {
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.3s ease;
     pointer-events: none; /* Предотвращает взаимодействие с контейнером подписи */
 }
 
-.product:hover .overlay {
+/* .product:hover .overlay {
     opacity: 1;
-}
+}*/
 
 
 .product .overlay p {
