@@ -47,7 +47,7 @@ function toggleImage(element) {
 
     const fullImg = productFull.querySelector('img');
     fullImg.onload = () => {
-        const minDimension = Math.min(window.innerWidth, window.innerHeight) - 20; // Учитываем поля
+        const minDimension = Math.min(window.innerWidth, window.innerHeight); // Учитываем поля
         const imgWidth = fullImg.naturalWidth;
         const imgHeight = fullImg.naturalHeight;
 
