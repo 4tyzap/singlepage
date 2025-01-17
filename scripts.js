@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'product7.jpg',
         'product8.jpg',
         'product9.jpg',
+        'no1.jpg',
         'product10.jpg'
     ];
 
