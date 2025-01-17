@@ -101,7 +101,7 @@ nav ul li a {
     justify-content: center;
     align-items: center;
     opacity: 1;
-    transition: opacity 0.3s ease;
+    /*transition: opacity 0.3s ease;*/
     pointer-events: none; /* Предотвращает взаимодействие с контейнером подписи */
 }
 
